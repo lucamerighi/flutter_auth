@@ -26,19 +26,25 @@ class _RegisterState extends State<Register> {
         ? Loading()
         : Scaffold(
             backgroundColor: Colors.brown[100],
-            appBar:
-                AppBar(backgroundColor: Colors.brown[400], elevation: 0.0, title: Text('Sign up'), actions: <Widget>[
-              FlatButton.icon(
-                onPressed: () => widget.toggleView(),
-                icon: Icon(Icons.person),
-                label: Text('Sign in'),
-              )
-            ]),
+            appBar: AppBar(
+                backgroundColor: Colors.brown[400],
+                elevation: 0.0,
+                title: Text(
+                  'Sign up',
+                ),
+                actions: <Widget>[
+                  FlatButton.icon(
+                    onPressed: () => widget.toggleView(),
+                    icon: Icon(Icons.person),
+                    label: Text('Sign in'),
+                  )
+                ]),
             body: Container(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
               child: Form(
                 key: _formKey,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: 20.0),
                     TextFormField(
@@ -57,8 +63,11 @@ class _RegisterState extends State<Register> {
                       },
                       obscureText: true,
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     RaisedButton(
-                      color: Colors.pink[400],
+                      color: Colors.red[400],
                       child: Text(
                         'Register',
                         style: TextStyle(color: Colors.white),

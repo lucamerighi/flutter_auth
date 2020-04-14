@@ -44,6 +44,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
               child: Form(
                 key: _formKey,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: 20),
                     TextFormField(
@@ -62,6 +63,9 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                       },
                       obscureText: true,
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     RaisedButton(
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
@@ -75,7 +79,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           }
                         }
                       },
-                      color: Colors.pink[400],
+                      color: Colors.red[400],
                       child: Text(
                         'Sign in',
                         style: TextStyle(color: Colors.white),
