@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_firebase/screens/shared/colors.dart';
 import 'package:hello_firebase/screens/shared/constants.dart';
 import 'package:hello_firebase/screens/shared/loading.dart';
 import 'package:hello_firebase/services/auth.dart';
@@ -26,9 +27,9 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Colors.brown[100],
+            backgroundColor: mainBackgroundColor,
             appBar: AppBar(
-              backgroundColor: Colors.brown[400],
+              backgroundColor: appBarColor,
               elevation: 0.0,
               title: Text('Sign in'),
               actions: <Widget>[
@@ -62,6 +63,9 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                       },
                       obscureText: true,
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     RaisedButton(
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
@@ -75,7 +79,7 @@ class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
                           }
                         }
                       },
-                      color: Colors.pink[400],
+                      color: buttonColor,
                       child: Text(
                         'Sign in',
                         style: TextStyle(color: Colors.white),

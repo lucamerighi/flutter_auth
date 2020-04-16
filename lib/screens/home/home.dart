@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_firebase/screens/shared/colors.dart';
 import 'package:hello_firebase/services/auth.dart';
 
 class Home extends StatelessWidget {
@@ -7,19 +8,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[50],
+      backgroundColor: mainBackgroundColor,
       appBar: AppBar(
-        title: Text('Brew Crew'),
-        backgroundColor: Colors.brown[400],
+        title: Text('App title'),
+        backgroundColor: appBarColor,
         elevation: 0.0,
         actions: <Widget>[
-          FlatButton.icon(
-            onPressed: () async {
-              await _auth.signOut();
-            },
-            icon: Icon(Icons.person),
-            label: Text('logout'),
-          )
+          IconButton(icon: Icon(Icons.exit_to_app), onPressed: () async => await _auth.signOut()),
         ],
       ),
     );

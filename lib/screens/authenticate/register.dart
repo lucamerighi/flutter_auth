@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_firebase/screens/shared/colors.dart';
 import 'package:hello_firebase/screens/shared/constants.dart';
 import 'package:hello_firebase/screens/shared/loading.dart';
 import 'package:hello_firebase/services/auth.dart';
@@ -25,9 +26,8 @@ class _RegisterState extends State<Register> {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Colors.brown[100],
-            appBar:
-                AppBar(backgroundColor: Colors.brown[400], elevation: 0.0, title: Text('Sign up'), actions: <Widget>[
+            backgroundColor: mainBackgroundColor,
+            appBar: AppBar(backgroundColor: appBarColor, elevation: 0.0, title: Text('Sign up'), actions: <Widget>[
               FlatButton.icon(
                 onPressed: () => widget.toggleView(),
                 icon: Icon(Icons.person),
@@ -57,8 +57,11 @@ class _RegisterState extends State<Register> {
                       },
                       obscureText: true,
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     RaisedButton(
-                      color: Colors.pink[400],
+                      color: buttonColor,
                       child: Text(
                         'Register',
                         style: TextStyle(color: Colors.white),
@@ -69,7 +72,7 @@ class _RegisterState extends State<Register> {
                           dynamic result = await _auth.registerWithEmailAndPassword(email, password);
                           if (result == null) {
                             setState(() {
-                              error = 'please supply a valid email';
+                              error = 'Can\'t create account with these credentials: invalid or already taken';
                               loading = false;
                             });
                           }
